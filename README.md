@@ -31,7 +31,7 @@ The website highlights the following core services:
 3. **Event Management**  
    End-to-end event management including program organization and food arrangements for smooth execution.
 
-4. *Interior and Home Makeover**  
+4. **Interior and Home Makeover**  
    Interior and overall home makeover services to transform spaces into functional and aesthetically pleasing homes.
 
 Each service has a dedicated page with detailed information.
