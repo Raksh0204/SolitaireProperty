@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Icon", name: "icon", widget: "string", hint: "Single emoji like 🌿"}
+      - {label: "Icon Background Color", name: "iconBg", widget: "select", options: ["bg-blue-100", "bg-purple-100", "bg-orange-100", "bg-teal-100", "bg-green-100", "bg-pink-100"]}
+      - {label: "Short Description", name: "shortDesc", widget: "text"}
+      - {label: "Detailed Description", name: "detailedDesc", widget: "text"}
+      - {label: "Features", name: "features", widget: "list"}
+      - {label: "Images", name: "images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General"
+        name: "general"
+        file: "content/settings/general.json"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Contact Email", name: "email", widget: "string"}
+          - {label: "Contact Phone", name: "phone", widget: "string"}
+          - {label: "Trust Badge Text", name: "trustBadge", widget: "string", default: "Trusted by 500+ companies"}
