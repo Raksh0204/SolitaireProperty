@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import AboutSection from './components/AboutSection';
 
@@ -10,6 +11,18 @@ interface Service {
   iconBg: string;
   shortDesc: string;
 }
+
+/* ---------------- HERO IMAGES ---------------- */
+
+const heroImages = [
+  '/images/hero/image1h.jpg',
+  '/images/hero/image2h.jpg',
+  '/images/hero/image3h.jpg',
+  '/images/hero/image4h.jpg',
+  '/images/hero/image5h.jpg',
+];
+
+/* ---------------- SERVICES ---------------- */
 
 const services: Service[] = [
   {
@@ -46,57 +59,84 @@ const services: Service[] = [
   },
 ];
 
+/* ---------------- HERO SLIDER COMPONENT ---------------- */
+
+function HeroSlider() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) =>
+        prev === heroImages.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <>
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
+        style={{
+          backgroundImage: `url(${heroImages[currentImage]})`,
+        }}
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Text Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-white">
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+          Where Property Meets Professional Management
+        </h1>
+
+        <p className="text-xl md:text-2xl text-gray-200 max-w-2xl">
+          Expert handling of apartments, property transactions, events, and complete home transformations - all under one roof.
+        </p>
+      </div>
+    </>
+  );
+}
+
+/* ---------------- HOME PAGE ---------------- */
+
 export default function Home() {
   return (
     <div>
-      {/* HERO */}
-      <section className="py-24 text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-bold mb-6">
-            Professional Services That Drive{' '}
-            <span className="text-teal-600">Business Growth</span>
-          </h2>
-
-          <p className="text-xl text-gray-600 mb-10">
-            Reliable, transparent, and premium property management
-            solutions tailored to modern needs.
-          </p>
-
-          <div className="flex justify-center gap-4">
-            <a
-              href="#services"
-              className="px-8 py-4 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition"
-            >
-              View Services
-            </a>
-            <Link
-              href="/contact"
-              className="px-8 py-4 border-2 border-gray-200 rounded-xl hover:border-gray-300 transition"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
+      {/* HERO SECTION */}
+      <section className="relative h-[85vh] flex items-center">
+        <HeroSlider />
       </section>
 
-      {/* ABOUT */}
+      {/* ABOUT SECTION */}
       <AboutSection />
 
-      {/* SERVICES */}
+      {/* SERVICES SECTION */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map(service => (
+            {services.map((service) => (
               <Link
                 key={service.id}
                 href={`/services/${service.id}`}
                 className="group bg-white rounded-2xl p-8 border hover:border-teal-200 hover:shadow-xl transition"
               >
-                <div className={`w-16 h-16 ${service.iconBg} rounded-2xl flex items-center justify-center mb-6`}>
+                <div
+                  className={`w-16 h-16 ${service.iconBg} rounded-2xl flex items-center justify-center mb-6`}
+                >
                   <span className="text-3xl">{service.icon}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.shortDesc}</p>
+
+                <h3 className="text-xl font-bold mb-3">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-600 text-sm">
+                  {service.shortDesc}
+                </p>
               </Link>
             ))}
           </div>

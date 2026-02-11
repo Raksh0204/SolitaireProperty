@@ -7,6 +7,7 @@ export default function Contact() {
             <form
                 name="contact"
                 method="POST"
+                action="/thank-you"
                 data-netlify="true"
                 className="space-y-4"
             >
@@ -15,6 +16,7 @@ export default function Contact() {
                 <input
                     name="name"
                     required
+                    pattern="[A-Za-z\s]+"
                     className="w-full border p-3"
                     placeholder="Your Name"
                 />
@@ -22,6 +24,7 @@ export default function Contact() {
                 <input
                     name="phone"
                     required
+                    pattern="\d{10}"
                     className="w-full border p-3"
                     placeholder="Phone Number"
                 />
