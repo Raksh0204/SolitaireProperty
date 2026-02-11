@@ -1,24 +1,47 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 export default function Contact() {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
+    async function handleSubmit(event: any) {
+        event.preventDefault();
+        setLoading(true);
+
+        const form = event.target;
+        const data = new FormData(form);
+
+        await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(data as any).toString(),
+        });
+
+        router.push('/thank-you');
+    }
+
     return (
         <div className="max-w-3xl mx-auto px-6 py-20">
             <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
 
-            {/* CONTACT FORM (Netlify Forms) */}
+            {/* CONTACT FORM */}
             <form
                 name="contact"
                 method="POST"
-                action="/thank-you"
                 data-netlify="true"
-                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
                 className="space-y-4"
             >
                 <input type="hidden" name="form-name" value="contact" />
-                <input type="hidden" name="bot-field" />
 
                 <input
                     name="name"
                     required
                     pattern="[A-Za-z\s]+"
+                    title="Name should contain only alphabets"
                     className="w-full border p-3"
                     placeholder="Your Name"
                 />
@@ -27,6 +50,7 @@ export default function Contact() {
                     name="phone"
                     required
                     pattern="\d{10}"
+                    title="Phone number must be exactly 10 digits"
                     className="w-full border p-3"
                     placeholder="Phone Number"
                 />
@@ -51,24 +75,27 @@ export default function Contact() {
                     type="submit"
                     className="bg-teal-600 text-white px-6 py-3 rounded-xl hover:bg-teal-700"
                 >
-                    Send Message
+                    {loading ? 'Sending...' : 'Send Message'}
                 </button>
             </form>
 
             {/* DIRECT CONTACT DETAILS */}
-            <h2 className="text-4xl font-bold mb-8 text-center">
-                Contact Us
-            </h2>
-            <div className="mt-10 text-gray-700">
+            <div className="mt-12 text-gray-700">
+                <h2 className="text-2xl font-bold mb-4">Direct Contact</h2>
+
                 <p className="mb-2">
-                    📞 Phones:{' '}
-                    <a href="tel:+918904147299" className="text-teal-600">+91 8904147299</a>
-                    {' / '}
-                    <a href="tel:+919876543210" className="text-teal-600">+91 9876543210</a>
+                    📞{' '}
+                    <a href="tel:+918904147299" className="text-teal-600">
+                        +91 8904147299
+                    </a>{' '}
+                    /{' '}
+                    <a href="tel:+919876543210" className="text-teal-600">
+                        +91 9876543210
+                    </a>
                 </p>
 
                 <p>
-                    ✉️ Email:{' '}
+                    ✉️{' '}
                     <a
                         href="mailto:solitairepm@gmail.com"
                         className="text-teal-600 font-medium"
