@@ -3,17 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 17, 24, 39;
-  --background-start-rgb: 249, 250, 251;
-  --background-end-rgb: 255, 255, 255;
-  --accent-teal: 20, 184, 166;
+  --foreground-rgb: 243, 244, 246;
+  --background-rgb: 17, 24, 39;
+  --accent-amber: 245, 158, 11;
+  --dark-bg: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 @layer utilities {
@@ -42,4 +40,32 @@ html {
 
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite linear;
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(245, 158, 11, 0.1) 50%,
+      transparent 100%);
+  background-size: 1000px 100%;
+}
+
+/* Glow effect for amber elements */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.glow-amber-strong {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.2);
 }

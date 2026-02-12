@@ -24,12 +24,15 @@ export default function Contact() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20">
+        <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white py-20">
             <div className="max-w-6xl mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Get In <span className="text-teal-600">Touch</span>
+                    <div className="inline-block mb-4 px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full">
+                        <span className="text-amber-600 font-semibold text-sm uppercase tracking-wider">Let's Connect</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-700">Touch</span>
                     </h1>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                         Have a question or need our services? We're here to help you with all your property management needs.
@@ -38,7 +41,7 @@ export default function Contact() {
 
                 <div className="grid md:grid-cols-2 gap-12">
                     {/* CONTACT FORM */}
-                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
                         <h2 className="text-2xl font-bold mb-6 text-gray-900">Send us a Message</h2>
 
                         <form
@@ -59,7 +62,7 @@ export default function Contact() {
                                     required
                                     pattern="[A-Za-z\s]+"
                                     title="Name should contain only alphabets"
-                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-teal-500 focus:outline-none transition"
+                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-amber-500 focus:outline-none transition bg-gray-50 focus:bg-white text-gray-900"
                                     placeholder="Enter your name"
                                 />
                             </div>
@@ -73,7 +76,7 @@ export default function Contact() {
                                     required
                                     pattern="\d{10}"
                                     title="Phone number must be exactly 10 digits"
-                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-teal-500 focus:outline-none transition"
+                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-amber-500 focus:outline-none transition bg-gray-50 focus:bg-white text-gray-900"
                                     placeholder="10-digit mobile number"
                                 />
                             </div>
@@ -86,7 +89,7 @@ export default function Contact() {
                                     name="email"
                                     required
                                     type="email"
-                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-teal-500 focus:outline-none transition"
+                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-amber-500 focus:outline-none transition bg-gray-50 focus:bg-white text-gray-900"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -99,7 +102,7 @@ export default function Contact() {
                                     name="message"
                                     required
                                     rows={5}
-                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-teal-500 focus:outline-none transition resize-none"
+                                    className="w-full border-2 border-gray-200 rounded-xl p-4 focus:border-amber-500 focus:outline-none transition resize-none bg-gray-50 focus:bg-white text-gray-900"
                                     placeholder="Tell us about your requirements..."
                                 />
                             </div>
@@ -107,7 +110,7 @@ export default function Contact() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black px-8 py-4 rounded-xl font-bold transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                             >
                                 {loading ? (
                                     <span className="flex items-center justify-center gap-2">
@@ -126,25 +129,25 @@ export default function Contact() {
 
                     {/* CONTACT INFO */}
                     <div className="space-y-6">
-                        <div className="bg-gradient-to-br from-teal-600 to-teal-700 rounded-2xl shadow-xl p-8 text-white">
-                            <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+                        <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-xl p-8 text-white border border-amber-500/20">
+                            <h2 className="text-2xl font-bold mb-6 text-amber-500">Contact Information</h2>
 
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-white/20 rounded-lg p-3">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg p-3">
+                                        <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold mb-2">Phone Numbers</h3>
-                                        <p className="text-teal-100">
-                                            <a href="tel:+918904147299" className="hover:text-white transition">
+                                        <h3 className="font-semibold mb-2 text-amber-400">Phone Numbers</h3>
+                                        <p className="text-gray-300">
+                                            <a href="tel:+918904147299" className="hover:text-amber-400 transition">
                                                 +91 8904147299
                                             </a>
                                         </p>
-                                        <p className="text-teal-100">
-                                            <a href="tel:+919876543210" className="hover:text-white transition">
+                                        <p className="text-gray-300">
+                                            <a href="tel:+919876543210" className="hover:text-amber-400 transition">
                                                 +91 9876543210
                                             </a>
                                         </p>
@@ -152,16 +155,16 @@ export default function Contact() {
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-white/20 rounded-lg p-3">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg p-3">
+                                        <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold mb-2">Email</h3>
+                                        <h3 className="font-semibold mb-2 text-amber-400">Email</h3>
                                         <a
                                             href="mailto:solitairepm@gmail.com"
-                                            className="text-teal-100 hover:text-white transition break-all"
+                                            className="text-gray-300 hover:text-amber-400 transition break-all"
                                         >
                                             solitairepm@gmail.com
                                         </a>
@@ -169,15 +172,15 @@ export default function Contact() {
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-white/20 rounded-lg p-3">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg p-3">
+                                        <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold mb-2">Business Hours</h3>
-                                        <p className="text-teal-100">Monday - Saturday</p>
-                                        <p className="text-teal-100">9:00 AM - 6:00 PM</p>
+                                        <h3 className="font-semibold mb-2 text-amber-400">Business Hours</h3>
+                                        <p className="text-gray-300">Monday - Saturday</p>
+                                        <p className="text-gray-300">9:00 AM - 6:00 PM</p>
                                     </div>
                                 </div>
                             </div>
@@ -185,13 +188,13 @@ export default function Contact() {
 
                         {/* Quick Info Cards */}
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 text-center">
-                                <div className="text-3xl mb-2">⚡</div>
+                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 text-center hover:border-amber-500 transition group">
+                                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">⚡</div>
                                 <div className="font-semibold text-gray-900">Quick Response</div>
                                 <div className="text-sm text-gray-600 mt-1">Within 24 hours</div>
                             </div>
-                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 text-center">
-                                <div className="text-3xl mb-2">🤝</div>
+                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 text-center hover:border-amber-500 transition group">
+                                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">🤝</div>
                                 <div className="font-semibold text-gray-900">Free Consultation</div>
                                 <div className="text-sm text-gray-600 mt-1">No obligations</div>
                             </div>
